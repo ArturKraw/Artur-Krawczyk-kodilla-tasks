@@ -14,8 +14,15 @@ public class TaskController {
     public List<TaskDto> getTasks(){
        return new ArrayList<>();
     }
+/*
+    @RequestMapping(method = RequestMethod.GET, value = "getTask")
+    @ResponseBody
+    public TaskDto getTask(String taskId){
+        return new TaskDto((long)1, "test title", "test_content");
+    }
+    */
 
-    @RequestMapping(method = RequestMethod.GET, value = "getTask", params = {"taskId"})
+    @RequestMapping(method = RequestMethod.GET, value = "getTask", params = ("taskId"))
     @ResponseBody
     public TaskDto getTask(@RequestParam("taskId") String taskId){
         return new TaskDto((long)1, "test title", "test_content");
