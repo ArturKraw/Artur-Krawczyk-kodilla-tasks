@@ -44,7 +44,8 @@ public class TaskController {
     @RequestMapping(method = RequestMethod.POST, value = "createTask" )
     @ResponseBody
     public TaskDto createTask (@RequestBody TaskDto taskDto){
-        return new TaskDto((long)1, "Ceated Test line", "New test content");
+
+        return new TaskDto((long)1, "Created Test line", "New test content");
     }
 }
 
