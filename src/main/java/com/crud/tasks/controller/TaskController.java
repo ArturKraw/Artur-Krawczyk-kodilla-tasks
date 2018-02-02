@@ -36,7 +36,8 @@ public class TaskController {
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteTask", params = {"taskId"})
     public void deleteTask(@RequestParam("taskId") String taskId){
-        System.out.println("Delete Task(id=taskId): " + taskId);
+
+        //System.out.println("Delete Task(id=taskId): " + taskId);
     }
 
     //http://localhost:8080/v1/task/deleteTask?taskId="taskId"
