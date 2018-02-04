@@ -26,9 +26,9 @@ public class TaskController {
 
     //http://localhost:8080/v1/task/getTasks
 
-    @RequestMapping(method = RequestMethod.GET, value = "getTaskId", params = ("id"))
+    @RequestMapping(method = RequestMethod.GET, value = "getTask", params = ("id"))
     @ResponseBody
-    public TaskDto getTaskId(@RequestParam("id")Long id){
+    public TaskDto getTask(@RequestParam("id")Long id){
         return taskMapper.mapToTaskDto(service.getTask(id));
     }
 
