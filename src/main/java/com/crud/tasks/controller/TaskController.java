@@ -26,12 +26,17 @@ public class TaskController {
 
     //http://localhost:8080/v1/task/getTasks
 
-    @RequestMapping(method = RequestMethod.GET, value = "getTask", params = ("taskId"))
+    @RequestMapping(method = RequestMethod.GET, value = "getTaskId", params = ("id"))
     @ResponseBody
-    public TaskDto getTask(@RequestParam("taskId") String taskId){
-        return new TaskDto((long)1, "test title", "test_content");
+    public TaskDto getTaskId(@RequestParam("id")Long id){
+        return taskMapper.mapToTaskDto(service.getTask(id));
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "getTask", params = ("taskId"))
+    @ResponseBody
+    public TaskDto getTask(@RequestParam("taskId")String taskId){
+        return new TaskDto((long)1, "test title", "test_content");
+    }
     //http://localhost:8080/v1/task/getTask?taskId
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteTask", params = {"taskId"})

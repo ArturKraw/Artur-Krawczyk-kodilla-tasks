@@ -28,4 +28,14 @@ public class TaskMapper {
                 .map(t -> new TaskDto(t.getId(), t.getTitle(), t.getContent()))
                 .collect(Collectors.toList());
     }
+
+    public TaskDto mapToTaskDto (final List<Task> taskList, Long id) {
+        return  taskList.stream()
+                //map(t -> new TaskDto(t.getId(), t.getTitle(), t.getContent()))
+                .filter(t -> t.getId().equals(id))
+                .findAny()
+                .map(t -> new TaskDto(t.getId(), t.getTitle(), t.getContent()))
+                .get();
+
+    }
 }
