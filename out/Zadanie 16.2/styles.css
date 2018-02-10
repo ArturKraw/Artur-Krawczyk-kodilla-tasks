@@ -1,0 +1,11 @@
+body {
+   background-color: grey;
+   color: black
+}
+
+h1 {
+   text-align: center;capitalize;
+   font-size: 60px;
+   color : red
+   
+}
