@@ -19,7 +19,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 public class TaskController {
 
     @Autowired
-    private DbService service; 
+    private DbService service;
 
     @Autowired
     private TaskMapper taskMapper;
