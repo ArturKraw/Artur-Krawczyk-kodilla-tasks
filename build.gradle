@@ -43,9 +43,6 @@ apply plugin: 'io.spring.dependency-management'
 apply plugin: 'war'
 
 
-
-sourceCompatibility = 1.8
-
 repositories {
     mavenCentral()
 }
