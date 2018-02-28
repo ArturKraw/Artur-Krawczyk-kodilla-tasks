@@ -15,13 +15,13 @@ import java.util.List;
 @Component
 public class TrelloClient {
 
-    @Value("${trello.api.endpoint.prod)")
+    @Value("${trello.api.endpoint.prod}")
     private String trelloApiEndpoint;
 
-    @Value("${trello.app.key)")
+    @Value("${trello.app.key}")
     private String trelloAppKey;
 
-    @Value("${trello.app.token)")
+    @Value("${trello.app.token}")
     private String trelloToken;
 
 
@@ -30,7 +30,8 @@ public class TrelloClient {
 
     public List<TrelloBoardDto> getTrelloBoards () {
 
-        URI url = UriComponentsBuilder.fromHttpUrl(trelloApiEndpoint + "/members/arturkrawczyk7/boards")
+        URI url = UriComponentsBuilder
+                .fromHttpUrl(trelloApiEndpoint + "/members/arturkrawczyk7/boards")
                 .queryParam("key", trelloAppKey)
                 .queryParam("token", trelloToken)
                 .queryParam("fields", "name,id")
