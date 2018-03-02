@@ -34,12 +34,10 @@ public class TrelloController {
 
             trelloBoardDto.getLists().forEach(trelloList ->
                     System.out.println(trelloList.getName() + " - " + trelloList.getId() + " - " + trelloList.isClosed()));
-
         });
-
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "crerateTrelloCards")
+    @RequestMapping(method = RequestMethod.POST, value = "createTrelloCard")
     public CreatedTrelloCard createTrelloCard (@RequestBody TrelloCardDto trelloCardDto) {
         return trelloClient.createNewCard(trelloCardDto);
     }
