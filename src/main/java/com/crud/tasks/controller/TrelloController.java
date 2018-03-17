@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -58,6 +59,25 @@ public class TrelloController {
         return Optional.of(filteredTrelloBoards);
 
     }
+
+    @RequestMapping(method = RequestMethod.GET, value = "getTrelloBoards")
+    public Optional< List<TrelloBoardDto>> getTrelloBoards() {
+
+        System.out.println("Filtr : wszystkie tablice z użyciem klasy Optional   ");
+
+        List <TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
+
+        List <TrelloBoardDto> filteredTrelloBoards = trelloBoards.stream()
+                .filter(trelloBoardDto -> (trelloBoardDto.getName().contains("Application")))
+                .collect(Collectors.toList());
+
+        if (filteredTrelloBoards.isEmpty()) {
+            return Optional.empty();
+        }
+        return Arrays.asList(ofNullable(filteredTrelloBoards).orElse(new TrelloBoardDto[0]));
+        //   return Arrays.asList(ofNullable(boardsResponse).orElse(new TrelloBoardDto[0]));
+    }
+
 }
 
 
